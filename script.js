@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.querySelector('.hero') || document.querySelector('.page-header');
 
     window.addEventListener('scroll', () => {
-        const triggerHeight = heroSection ? (heroSection.offsetHeight - 100) : 50;
+        const triggerHeight = 50;
 
         if (window.scrollY > triggerHeight) {
             header.classList.add('scrolled');
