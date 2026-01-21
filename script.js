@@ -32,4 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Sticky Header
+    const header = document.querySelector('.site-header');
+    const heroSection = document.querySelector('.hero') || document.querySelector('.page-header');
+
+    window.addEventListener('scroll', () => {
+        const triggerHeight = heroSection ? (heroSection.offsetHeight - 100) : 50;
+
+        if (window.scrollY > triggerHeight) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 });
