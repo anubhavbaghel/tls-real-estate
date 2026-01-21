@@ -1,39 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Header Scroll Effect
-    const header = document.getElementById('header');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li');
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            // Toggle Nav
+            navLinks.classList.toggle('nav-active');
+
+            // Toggle Burger Animation
+            mobileMenuToggle.classList.toggle('toggle');
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('nav-active') &&
+            !navLinks.contains(e.target) &&
+            !mobileMenuToggle.contains(e.target)) {
+            navLinks.classList.remove('nav-active');
+            mobileMenuToggle.classList.remove('toggle');
         }
     });
 
-    // Simple Intersection Observer for Fade-up animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+    // Close menu when a link is clicked
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                mobileMenuToggle.classList.remove('toggle');
             }
         });
-    }, observerOptions);
-
-    // Apply animation styles to elements we want to animate
-    const animateElements = document.querySelectorAll('.property-card, .section-title, .about-text, .about-image');
-    
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(el);
     });
 });
