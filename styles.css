@@ -774,3 +774,188 @@ textarea.form-control {
         padding: 30px 20px;
     }
 }
+
+/* =========================================
+   Agent Carousel
+   ========================================= */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 50px;
+    /* Space for controls */
+}
+
+.carousel-track {
+    position: relative;
+    /* We will simply toggle display/opacity for slides */
+}
+
+.carousel-slide {
+    display: none;
+    animation: fadeEffect 0.5s ease;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.agent-card-image {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    /* Allow container to fit image width */
+    width: fit-content;
+    /* Center in grid column */
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 2px;
+}
+
+.agent-card-image img {
+    /* Auto width/height to preserve aspect ratio */
+    width: auto;
+    height: auto;
+    /* Constrain height to viewport */
+    max-height: 70vh;
+    display: block;
+    /* Ensure image isn't cropped */
+    object-fit: contain;
+}
+
+.agent-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Gradient matches image width now because of fit-content */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 30px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.agent-details h3 {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.agent-role {
+    color: var(--color-accent);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.agent-contact a {
+    display: block;
+    color: var(--color-white);
+    font-size: 14px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.agent-contact a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+}
+
+/* Controls */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.carousel-btn {
+    background: var(--color-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.carousel-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Agent Carousel Specifics */
+.agent-carousel-wrapper .carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    /* Full width of the container */
+    transform: translateY(-50%);
+    justify-content: space-between;
+    padding: 0 0px;
+    /* Aligned to edges - container has padding normally so maybe negative or just 0 */
+    margin-top: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+/* Show controls on hover */
+.carousel-container:hover .carousel-controls {
+    opacity: 1;
+}
+
+.agent-carousel-wrapper .carousel-btn {
+    pointer-events: auto;
+    background: rgba(18, 18, 18, 0.6);
+    /* Semi-transparent background */
+    backdrop-filter: blur(4px);
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.agent-carousel-wrapper .carousel-btn:hover {
+    background: var(--color-accent);
+}
+
+@media screen and (max-width: 1024px) {
+    .agent-carousel-wrapper .carousel-controls {
+        width: 100%;
+        /* Full width on mobile/tablet when stacked or image is full */
+        top: 300px;
+        /* Approximate center of image area if stacked? Needs adjustment */
+    }
+
+    .about-split.agent-carousel-split {
+        position: relative;
+    }
+
+    .agent-carousel-wrapper .carousel-controls {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        /* This might need to be specific to the image container if possible */
+    }
+}

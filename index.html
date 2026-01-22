@@ -75,24 +75,76 @@
     </section>
 
     <!-- Welcome Section (Replaces Featured for now, or sits above it) -->
-    <section id="welcome" class="section">
+    <!-- Agents Carousel Section -->
+    <section id="agents" class="section">
         <div class="container">
-            <div class="about-split">
-                <div class="about-text">
-                    <span class="text-gold uppercase">Welcome</span>
-                    <h2 class="section-title">Company's Vision</h2>
-                    <p>Welcome to TLS Real Estate Agents, where your property dreams become a reality. Whether you’re
-                        buying, selling, or renting, with TLS, we treat your goals as our own, ensuring a process that’s
-                        smooth, transparent, and tailored precisely to what you envision.</p>
-                    <p>With us, you’re not stepping into the vast world of real estate alone; you have a trusted
-                        partner, a listener, and a strategist by your side.</p>
-                    <a href="#" class="btn">Learn More About Us</a>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Slide 1: Radhika Mehra -->
+                    <div class="carousel-slide active">
+                        <div class="about-split">
+                            <div class="about-text content-block">
+                                <span class="text-gold uppercase">Founder & Director</span>
+                                <h2 class="section-title">Radhika Mehra</h2>
+                                <p>Radhika Mehra is a name synonymous with excellence in Sydney and Canberra’s real
+                                    estate market. She’s not just any agent; she’s your personal guide in the journey of
+                                    finding your perfect home or maximizing your investment.</p>
+                                <p>Known for her unwavering commitment, Radhika seamlessly orchestrates
+                                    behind-the-scenes operations while setting new standards for property management
+                                    excellence.</p>
+                            </div>
+                            <div class="about-image agent-card-image">
+                                <img src="https://tlsrealestateagents.com.au/wp-content/uploads/2024/04/TLS_Portraits-2-BWhh-778x1024.jpg"
+                                    alt="Radhika Mehra">
+                                <div class="agent-overlay">
+                                    <div class="agent-details">
+                                        <h3>Radhika Mehra</h3>
+                                        <p class="agent-role">Director</p>
+                                        <div class="agent-contact">
+                                            <a
+                                                href="mailto:Radhika@tlspecialists.com.au">Radhika@tlspecialists.com.au</a>
+                                            <a href="tel:0411197871">0411 197 871</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Emily Marchant -->
+                    <div class="carousel-slide">
+                        <div class="about-split">
+                            <div class="about-text content-block">
+                                <span class="text-gold uppercase">Property Manager</span>
+                                <h2 class="section-title">Emily Marchant</h2>
+                                <p>Emily brings over six years of hands-on experience in property management,
+                                    characterized by a calm, solution-focused approach that clients truly value.</p>
+                                <p>Dedicated to building strong relationships with both landlords and tenants, Emily
+                                    ensures that the investment journey is seamless and stress-free. Her expertise makes
+                                    her an invaluable asset to the TLS team.</p>
+                            </div>
+                            <div class="about-image agent-card-image">
+                                <img src="https://tlsrealestateagents.com.au/wp-content/uploads/2025/06/emily-1.jpeg"
+                                    alt="Emily Marchant">
+                                <div class="agent-overlay">
+                                    <div class="agent-details">
+                                        <h3>Emily Marchant</h3>
+                                        <p class="agent-role">Property Management Specialist</p>
+                                        <div class="agent-contact">
+                                            <a href="mailto:Emily@tlspecialists.com.au">Emily@tlspecialists.com.au</a>
+                                            <a href="tel:0439494857">0439 494 857</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <!-- Original Image -->
-                    <img src="https://tlsrealestateagents.com.au/wp-content/uploads/2024/01/5_B_W-removebg-preview.png"
-                        alt="TLS Team"
-                        style="background: linear-gradient(45deg, #1a1a1a, #0a0a0a); border-radius: 4px; padding: 20px;">
+
+                <!-- Controls -->
+                <div class="carousel-controls">
+                    <button id="prevBtn" class="carousel-btn"><i class="fa fa-chevron-left"></i></button>
+                    <button id="nextBtn" class="carousel-btn"><i class="fa fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>

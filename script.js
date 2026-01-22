@@ -46,3 +46,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Agent Carousel
+const slides = document.querySelectorAll('.carousel-slide');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+
+if (slides.length > 0 && nextBtn && prevBtn) {
+    let currentSlide = 0;
+    let slideInterval;
+    const intervalTime = 5000; // 5 seconds
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Event Listeners
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+
+    // Autoplay
+    function startTimer() {
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopTimer() {
+        clearInterval(slideInterval);
+    }
+
+    function resetTimer() {
+        stopTimer();
+        startTimer();
+    }
+
+    // Pause on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopTimer);
+        carouselContainer.addEventListener('mouseleave', startTimer);
+    }
+
+    // Start initial timer
+    startTimer();
+}
+
+
